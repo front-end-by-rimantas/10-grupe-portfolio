@@ -1,3 +1,16 @@
+/* UTILITY classes */
+.main-color-bg {
+    background-color: var(--main-color);
+}
+.secondary-color-bg {
+    background-color: var(--secondary-color);
+}
+.light-main-color-bg {
+    background-color: var(--light-main-color);
+}
+
+
+
 /* START: header */
 
 /* END: header */
