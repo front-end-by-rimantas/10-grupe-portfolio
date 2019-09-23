@@ -94,7 +94,7 @@
     box-shadow: 0 4px 12px #0005;
     border-radius: 4px;
 }
-    .block:last-child {
+    .block:nth-child(4n) {
         margin-right: 0;
     }
     .block > * {
