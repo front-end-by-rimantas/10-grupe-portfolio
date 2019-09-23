@@ -1,3 +1,63 @@
+/* UTILITY classes */
+.main-color-bg {
+    background-color: var(--main-color);
+}
+.secondary-color-bg {
+    background-color: var(--secondary-color);
+}
+.light-main-color-bg {
+    background-color: var(--light-main-color);
+}
+
+
+.section-title {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 54px;
+    line-height: 60px;
+    position: relative;
+}
+    .section-title::before {
+        display: inline-block;
+        content: '';
+        width: 100px;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary-color);
+    }
+    .section-title::after {
+        display: inline-block;
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--secondary-color);
+    }
+    .section-title.title-center {
+        color: #fff;
+        text-align: center;
+    }
+        .section-title.title-center::before {
+            background-color: #fff;
+            left: calc((100% - 100px) / 2);
+        }
+        .section-title.title-center::after {
+            left: calc((100% - 10px) / 2);
+            background-color: #fff;
+        }
+    .section-title.title-no-line::before,
+    .section-title.title-no-line::after {
+        display: none;
+    }
+
+
 /* START: header */
 
 /* END: header */
@@ -23,6 +83,64 @@
 
 
 /* START: achievements */
+
+.block {
+    display: inline-block;
+    width: calc( (100% - 90px) / 4 );
+    float: left;
+    padding: 60px 0;
+    margin-right: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px #0005;
+    border-radius: 4px;
+}
+    .block:nth-child(4n) {
+        margin-right: 0;
+    }
+    .block > * {
+        display: inline-block;
+        width: 100%;
+    }
+    .block > i {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+        line-height: 100px;
+        border: 3px solid var(--main-color);
+        background-color: var(--half-main-color);
+        color: #777;
+        border-radius: 50% 40% 30% 35%;
+        animation-name: borders;
+        animation-iteration-count: infinite;
+        animation-duration: 4s;
+    }
+    .block > p {
+        font-size: 40px;
+        line-height: 50px;
+        margin: 15px 0;
+    }
+    .block > h4 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @keyframes borders {
+        0% {
+            border-radius: 50% 40% 30% 35%;
+        }
+        25% {
+            border-radius: 40% 30% 35% 50%;
+        }
+        50% {
+            border-radius: 30% 35% 50% 40%;
+        }
+        75% {
+            border-radius: 35% 50% 40% 30%;
+        }
+        100% {
+            border-radius: 50% 40% 30% 35%;
+        }
+    }
 
 /* END: achievements */
 
