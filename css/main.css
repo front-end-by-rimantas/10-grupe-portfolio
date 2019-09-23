@@ -84,6 +84,41 @@
 
 /* START: achievements */
 
+.block {
+    display: inline-block;
+    width: calc( (100% - 90px) / 4 );
+    float: left;
+    padding: 60px 0;
+    margin-right: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px #0005;
+    border-radius: 4px;
+}
+    .block:last-child {
+        margin-right: 0;
+    }
+    .block > * {
+        display: inline-block;
+        width: 100%;
+    }
+    .block > i {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+        line-height: 100px;
+        border: 3px solid var(--main-color);
+        border-radius: 50%;
+    }
+    .block > p {
+        font-size: 40px;
+        line-height: 50px;
+        margin: 15px 0;
+    }
+    .block > h4 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
 /* END: achievements */
 
 
