@@ -107,7 +107,12 @@
         font-size: 40px;
         line-height: 100px;
         border: 3px solid var(--main-color);
-        border-radius: 50%;
+        background-color: var(--half-main-color);
+        color: #777;
+        border-radius: 50% 40% 30% 35%;
+        animation-name: borders;
+        animation-iteration-count: infinite;
+        animation-duration: 4s;
     }
     .block > p {
         font-size: 40px;
@@ -117,6 +122,24 @@
     .block > h4 {
         font-size: 16px;
         line-height: 20px;
+    }
+
+    @keyframes borders {
+        0% {
+            border-radius: 50% 40% 30% 35%;
+        }
+        25% {
+            border-radius: 40% 30% 35% 50%;
+        }
+        50% {
+            border-radius: 30% 35% 50% 40%;
+        }
+        75% {
+            border-radius: 35% 50% 40% 30%;
+        }
+        100% {
+            border-radius: 50% 40% 30% 35%;
+        }
     }
 
 /* END: achievements */
