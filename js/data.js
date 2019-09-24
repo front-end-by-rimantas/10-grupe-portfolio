@@ -34,23 +34,3 @@ const achievements = [
         title: 'HAPPY CLIENTS'
     }
 ];
-
-
-// ['Vardenis', 'Pavardenis', 182, 105, 30]
-
-// const zmogus = {
-//     name: 'Vardenis',
-//     surname: 'Pavardenis',
-//     height: 182,
-//     weight: 105,
-//     age: 30,
-//     mother: {
-//         name: 'Vardene',
-//         surname: 'Pavardene',
-//         age: 60
-//     },
-//     marks: [1, 2, 3, 4, 5, 6]
-// }
-
-// const motinosVardas = zmogus.mother.name;
-// const treciasPazymys = zmogus.marks[2];
