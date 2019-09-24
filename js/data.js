@@ -34,3 +34,26 @@ const achievements = [
         title: 'HAPPY CLIENTS'
     }
 ];
+
+const services = [
+    {
+        icon: 'diamond',
+        title: 'Web design',
+        p: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.'
+    },
+    {
+        icon: 'bar-chart',
+        title: 'App development',
+        p: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.'
+    },
+    {
+        icon: 'lightbulb-o',
+        title: 'Web development',
+        p: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.'
+    },
+    {
+        icon: 'dashboard',
+        title: 'Web development',
+        p: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.'
+    }
+];
