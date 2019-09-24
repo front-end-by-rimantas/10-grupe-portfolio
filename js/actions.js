@@ -1,3 +1,6 @@
-renderAchievements( achievements );
+// renderAchievements( achievements );
 
-renderServices( services );
+// renderServices( services );
+
+renderBlocks( 'achievements', achievements );
+renderBlocks( 'services', services );
