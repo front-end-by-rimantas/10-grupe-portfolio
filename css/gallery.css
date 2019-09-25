@@ -1,0 +1,29 @@
+.gallery {
+    display: inline-block;
+    width: 100%;
+}
+    .gallery > .filter {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+        .gallery > .filter > .filter-item {
+            display: inline-block;
+            float: left;
+            margin-right: 20px;
+        }
+    .gallery > .item-list {
+        display: inline-block;
+        width: 100%;
+    }
+        .gallery > .item-list > .item {
+            display: inline-block;
+            width: calc( (100% - 40px) / 3 );
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #CCC;
+            padding: 40px;
+        }
+        .gallery > .item-list > .item:nth-child(3n) {
+            margin-right: 0;
+        }

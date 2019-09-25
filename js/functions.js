@@ -40,8 +40,6 @@ function renderBlocks( target, data ) {
 function renderSkills( data ) {
     let HTML = '';
 
-
-
     data.forEach( skill => {
         if ( !skill.title ||
              typeof(skill.title) !== 'string' ||
@@ -71,4 +69,42 @@ function renderSkills( data ) {
     });
     
     return HTML;
+}
+
+function renderGallery( target, data ) {
+    let filter_HTML = '';
+    let unique_tags = [];       // ['a', 'b', 'c']
+
+    for ( let i=0; i<data.length; i++ ) {
+        let category = data[i].cat;
+        if ( unique_tags.indexOf(category) === -1 ) {
+            unique_tags.push(category);
+        }
+    }
+
+    for ( let i=0; i<unique_tags.length; i++ ) {
+        filter_HTML += `<div class="filter-item">${unique_tags[i]}</div>`;
+    }
+
+                        
+    let gallery_HTML =  '';
+    for ( let i=0; i<data.length; i++ ) {
+        gallery_HTML += `<div class="item">
+                            <div>IMAGE: ${data[i].pic}</div>
+                            <div>TITLE: ${data[i].title}</div>
+                            <div>CATEGORY: ${data[i].cat}</div>
+                        </div>`;
+    }
+
+    let HTML = `<div class="gallery">
+                    <div class="filter">
+                        <div class="filter-item">All works</div>
+                        ${filter_HTML}
+                    </div>
+                    <div class="item-list">
+                        ${gallery_HTML}
+                    </div>
+                </div>`;
+    
+    return document.querySelector(target).innerHTML = HTML;
 }

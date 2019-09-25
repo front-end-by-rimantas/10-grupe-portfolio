@@ -92,3 +92,36 @@ const skills = [
         value: 60
     }
 ];
+
+const works = [
+    {
+        pic: 'apps.jpg',
+        title: 'Apps',
+        cat: 'app'
+    },
+    {
+        pic: 'illustration.jpg',
+        title: 'Illustration 1',
+        cat: 'illustration'
+    },
+    {
+        pic: 'illustration1.jpg',
+        title: 'Illustration 2',
+        cat: 'illustration'
+    },
+    {
+        pic: 'photoshop.jpg',
+        title: 'Photoshop 1',
+        cat: 'photoshop'
+    },
+    {
+        pic: 'photoshop1.jpg',
+        title: 'Photoshop 2',
+        cat: 'photoshop'
+    },
+    {
+        pic: 'website.jpg',
+        title: 'Website',
+        cat: 'website'
+    }
+];
