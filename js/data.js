@@ -57,3 +57,38 @@ const services = [
         p: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.'
     }
 ];
+
+const skills = [
+    'one more magic',
+    {
+        title: 'HTML5',
+        value: 85
+    },
+    {
+        title: 'CSS3',
+        value: 75
+    },
+    {
+        title: 'Much mathematic',
+        value: 150
+    },
+    {
+        title: 'Much mathematic v2',
+        value: -150
+    },
+    {
+        title: 'Much mathematic v3',
+        value: 43 + 10/3
+    },
+    {
+        title: 'Magic'
+    },
+    {
+        title: 'J-Query',
+        value: 90
+    },
+    {
+        title: 'Bootstrap',
+        value: 60
+    }
+];
