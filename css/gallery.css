@@ -27,3 +27,6 @@
         .gallery > .item-list > .item:nth-child(3n) {
             margin-right: 0;
         }
+            .gallery > .item-list > .item.hidden {
+                display: none;
+            }

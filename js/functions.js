@@ -75,6 +75,7 @@ function renderGallery( target, data ) {
     let filter_HTML = '';
     let unique_tags = [];       // ['a', 'b', 'c']
 
+    // filter out only unique categories
     for ( let i=0; i<data.length; i++ ) {
         let category = data[i].cat;
         if ( unique_tags.indexOf(category) === -1 ) {
@@ -82,20 +83,22 @@ function renderGallery( target, data ) {
         }
     }
 
+    // render filter HTML
     for ( let i=0; i<unique_tags.length; i++ ) {
         filter_HTML += `<div class="filter-item">${unique_tags[i]}</div>`;
     }
 
-                        
+    // render gallery HTML
     let gallery_HTML =  '';
     for ( let i=0; i<data.length; i++ ) {
         gallery_HTML += `<div class="item">
                             <div>IMAGE: ${data[i].pic}</div>
                             <div>TITLE: ${data[i].title}</div>
-                            <div>CATEGORY: ${data[i].cat}</div>
+                            <div>CATEGORY: <span class="cat">${data[i].cat}</span></div>
                         </div>`;
     }
 
+    // render complete HTML
     let HTML = `<div class="gallery">
                     <div class="filter">
                         <div class="filter-item">All works</div>
@@ -106,5 +109,29 @@ function renderGallery( target, data ) {
                     </div>
                 </div>`;
     
+    // include complete HTML into targeted element
     return document.querySelector(target).innerHTML = HTML;
+}
+
+function filterGallery( event ) {
+    const category = event.target.textContent;
+
+    // pereiti per galerijos blokus ir norimus paslepti/parodyti pagal paspausta filtra
+    const allBlocks = document.querySelectorAll('.gallery > .item-list > .item');
+
+    if ( category === 'All works' ) {
+        allBlocks.forEach( block => {
+            block.classList.remove('hidden');
+        })
+    } else {
+        allBlocks.forEach( block => {
+            if ( block.querySelector('span.cat').textContent === category ) {
+                block.classList.remove('hidden');
+            } else {
+                block.classList.add('hidden');
+            }
+        })
+    }
+
+    return;
 }
