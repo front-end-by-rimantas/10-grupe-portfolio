@@ -77,7 +77,7 @@ function renderGallery( target, data ) {
 
     // filter out only unique categories
     for ( let i=0; i<data.length; i++ ) {
-        let category = data[i].cat;
+        let category = data[i].cat.toLowerCase();
         if ( unique_tags.indexOf(category) === -1 ) {
             unique_tags.push(category);
         }
@@ -91,17 +91,18 @@ function renderGallery( target, data ) {
     // render gallery HTML
     let gallery_HTML =  '';
     for ( let i=0; i<data.length; i++ ) {
-        gallery_HTML += `<div class="item">
+        gallery_HTML += `<div class="item" data-category="${data[i].cat.toLowerCase()}">
                             <div>IMAGE: ${data[i].pic}</div>
                             <div>TITLE: ${data[i].title}</div>
-                            <div>CATEGORY: <span class="cat">${data[i].cat}</span></div>
                         </div>`;
     }
+
+    // <div>CATEGORY: <span class="cat">${data[i].cat.toLowerCase()}</span></div>
 
     // render complete HTML
     let HTML = `<div class="gallery">
                     <div class="filter">
-                        <div class="filter-item">All works</div>
+                        <div class="filter-item active">All works</div>
                         ${filter_HTML}
                     </div>
                     <div class="item-list">
@@ -114,18 +115,27 @@ function renderGallery( target, data ) {
 }
 
 function filterGallery( event ) {
-    const category = event.target.textContent;
+    const category = event.target.textContent.toLowerCase();
+
+    // perkeliame "active" klase
+        // pasaliname nuo visu filtravimo elementu
+        // document.querySelectorAll('.gallery > .filter > .filter-item').forEach( item => {
+        //     item.classList.remove('active');
+        // });
+        document.querySelector('.gallery > .filter > .filter-item.active').classList.remove('active');
+        // uzdedame atgal tik ant to, kurio paspaudziau
+        event.target.classList.add('active');
 
     // pereiti per galerijos blokus ir norimus paslepti/parodyti pagal paspausta filtra
     const allBlocks = document.querySelectorAll('.gallery > .item-list > .item');
 
-    if ( category === 'All works' ) {
+    if ( category === 'all works' ) {
         allBlocks.forEach( block => {
             block.classList.remove('hidden');
         })
     } else {
         allBlocks.forEach( block => {
-            if ( block.querySelector('span.cat').textContent === category ) {
+            if ( block.dataset.category.toLowerCase() === category ) {
                 block.classList.remove('hidden');
             } else {
                 block.classList.add('hidden');

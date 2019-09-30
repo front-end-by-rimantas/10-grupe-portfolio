@@ -11,7 +11,12 @@
             display: inline-block;
             float: left;
             margin-right: 20px;
+            text-transform: capitalize;
         }
+            .gallery > .filter > .filter-item.active {
+                color: var(--secondary-color);
+                text-decoration: underline;
+            }
     .gallery > .item-list {
         display: inline-block;
         width: 100%;
@@ -24,6 +29,9 @@
             border: 1px solid #CCC;
             padding: 40px;
         }
+            .gallery > .item-list > .item .cat {
+                text-transform: uppercase;
+            }
         .gallery > .item-list > .item:nth-child(3n) {
             margin-right: 0;
         }

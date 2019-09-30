@@ -102,7 +102,7 @@ const works = [
     {
         pic: 'illustration.jpg',
         title: 'Illustration 1',
-        cat: 'illustration'
+        cat: 'Illustration'
     },
     {
         pic: 'illustration1.jpg',
@@ -112,7 +112,7 @@ const works = [
     {
         pic: 'photoshop.jpg',
         title: 'Photoshop 1',
-        cat: 'photoshop'
+        cat: 'Photoshop'
     },
     {
         pic: 'photoshop1.jpg',
