@@ -145,3 +145,42 @@ function filterGallery( event ) {
 
     return;
 }
+
+function renderTestimonials( target, data ) {
+    let items_HTML = '';
+
+    data.forEach( t => {
+        let stars_HTML = '';
+
+        for ( let i=0; i<Math.round(t.stars); i++ ) {
+            stars_HTML += '<i class="fa fa-star"></i>';
+        }
+        for ( let i=Math.round(t.stars); i<5; i++ ) {
+            stars_HTML += '<i class="fa fa-star-o"></i>';
+        }
+
+        items_HTML += `<div class="item">
+                            <div class="qoutes">99</div>
+                            <div class="author">${t.author}</div>
+                            <div class="stars">
+                                ${stars_HTML}
+                            </div>
+                            <div class="text">${t.text}</div>
+                        </div>`;
+    });
+
+    let HTML = `<div class="testimonials">
+                    <div class="list">
+                        ${items_HTML}
+                    </div>
+                    <div class="controls">
+                        <i class="fa fa-arrow-left"></i>
+                        <div class="long">
+                            <div class="short"></div>
+                        </div>
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </div>`;
+
+    return document.querySelector(target).innerHTML = HTML;
+}

@@ -125,3 +125,21 @@ const works = [
         cat: 'website'
     }
 ];
+
+const testimonials = [
+    {
+        author: 'Chuck Norris',
+        stars: 5,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    },
+    {
+        author: 'Bill Gates',
+        stars: 5,
+        text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum.'
+    },
+    {
+        author: 'Jean Claude van Damme',
+        stars: 2.5,
+        text: 'Split the stars...'
+    }
+];

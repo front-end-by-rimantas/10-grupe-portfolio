@@ -15,5 +15,7 @@ document.querySelectorAll('.filter-item').forEach( item => {
 });
 
 // ************************************
-// 
+// TESTIMONIALS
 // ************************************
+
+renderTestimonials('#testimonials > .row', testimonials);
