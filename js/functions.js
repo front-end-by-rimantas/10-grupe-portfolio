@@ -40,8 +40,6 @@ function renderBlocks( target, data ) {
 function renderSkills( data ) {
     let HTML = '';
 
-
-
     data.forEach( skill => {
         if ( !skill.title ||
              typeof(skill.title) !== 'string' ||
@@ -71,4 +69,79 @@ function renderSkills( data ) {
     });
     
     return HTML;
+}
+
+function renderGallery( target, data ) {
+    let filter_HTML = '';
+    let unique_tags = [];       // ['a', 'b', 'c']
+
+    // filter out only unique categories
+    for ( let i=0; i<data.length; i++ ) {
+        let category = data[i].cat.toLowerCase();
+        if ( unique_tags.indexOf(category) === -1 ) {
+            unique_tags.push(category);
+        }
+    }
+
+    // render filter HTML
+    for ( let i=0; i<unique_tags.length; i++ ) {
+        filter_HTML += `<div class="filter-item">${unique_tags[i]}</div>`;
+    }
+
+    // render gallery HTML
+    let gallery_HTML =  '';
+    for ( let i=0; i<data.length; i++ ) {
+        gallery_HTML += `<div class="item" data-category="${data[i].cat.toLowerCase()}">
+                            <div>IMAGE: ${data[i].pic}</div>
+                            <div>TITLE: ${data[i].title}</div>
+                        </div>`;
+    }
+
+    // <div>CATEGORY: <span class="cat">${data[i].cat.toLowerCase()}</span></div>
+
+    // render complete HTML
+    let HTML = `<div class="gallery">
+                    <div class="filter">
+                        <div class="filter-item active">All works</div>
+                        ${filter_HTML}
+                    </div>
+                    <div class="item-list">
+                        ${gallery_HTML}
+                    </div>
+                </div>`;
+    
+    // include complete HTML into targeted element
+    return document.querySelector(target).innerHTML = HTML;
+}
+
+function filterGallery( event ) {
+    const category = event.target.textContent.toLowerCase();
+
+    // perkeliame "active" klase
+        // pasaliname nuo visu filtravimo elementu
+        // document.querySelectorAll('.gallery > .filter > .filter-item').forEach( item => {
+        //     item.classList.remove('active');
+        // });
+        document.querySelector('.gallery > .filter > .filter-item.active').classList.remove('active');
+        // uzdedame atgal tik ant to, kurio paspaudziau
+        event.target.classList.add('active');
+
+    // pereiti per galerijos blokus ir norimus paslepti/parodyti pagal paspausta filtra
+    const allBlocks = document.querySelectorAll('.gallery > .item-list > .item');
+
+    if ( category === 'all works' ) {
+        allBlocks.forEach( block => {
+            block.classList.remove('hidden');
+        })
+    } else {
+        allBlocks.forEach( block => {
+            if ( block.dataset.category.toLowerCase() === category ) {
+                block.classList.remove('hidden');
+            } else {
+                block.classList.add('hidden');
+            }
+        })
+    }
+
+    return;
 }
