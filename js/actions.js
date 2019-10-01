@@ -19,3 +19,7 @@ document.querySelectorAll('.filter-item').forEach( item => {
 // ************************************
 
 renderTestimonials('#testimonials > .row', testimonials);
+
+document.querySelectorAll('.testimonials > .controls > .fa').forEach( arrow => {
+    arrow.addEventListener('click', updateVisibleTestimonial);
+})

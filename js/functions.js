@@ -159,7 +159,7 @@ function renderTestimonials( target, data ) {
             stars_HTML += '<i class="fa fa-star-o"></i>';
         }
 
-        items_HTML += `<div class="item ${index === 0 ? 'active' : ''}">
+        items_HTML += `<div class="item ${index === 0 ? 'active' : ''}" data-index="${index}">
                             <div class="qoutes">99</div>
                             <div class="author">${t.author}</div>
                             <div class="stars">
@@ -174,13 +174,47 @@ function renderTestimonials( target, data ) {
                         ${items_HTML}
                     </div>
                     <div class="controls">
-                        <i class="fa fa-long-arrow-left"></i>
+                        <i class="fa fa-long-arrow-left" data-direction="left"></i>
                         <div class="long">
                             <div class="short" style="width: ${100 / data.length}%;"></div>
                         </div>
-                        <i class="fa fa-long-arrow-right"></i>
+                        <i class="fa fa-long-arrow-right" data-direction="right"></i>
                     </div>
                 </div>`;
 
     return document.querySelector(target).innerHTML = HTML;
 }
+
+function updateVisibleTestimonial( event ) {
+    const direction = event.target.dataset.direction;
+    let index = parseInt(document.querySelector('.testimonials > .list > .item.active').dataset.index);
+    const length = testimonials.length - 1;
+
+    if ( direction === 'left') {
+        // previous
+        if ( index === 0 ) {
+            index = length;
+        } else {
+            index--;
+        }
+    }
+
+    if ( direction === 'right') {
+        // next
+        if ( index < length ) {
+            index++
+        } else {
+            index = 0;
+        }
+    }
+
+    document.querySelector('.testimonials > .list > .item.active')
+            .classList.remove('active');
+    
+    document.querySelectorAll('.testimonials > .list > .item')[index]
+            .classList.add('active');
+
+    return console.log('Paspausta kryptis: '+direction);
+}
+
+
