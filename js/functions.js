@@ -149,7 +149,7 @@ function filterGallery( event ) {
 function renderTestimonials( target, data ) {
     let items_HTML = '';
 
-    data.forEach( t => {
+    data.forEach( (t, index) => {
         let stars_HTML = '';
 
         for ( let i=0; i<Math.round(t.stars); i++ ) {
@@ -159,7 +159,7 @@ function renderTestimonials( target, data ) {
             stars_HTML += '<i class="fa fa-star-o"></i>';
         }
 
-        items_HTML += `<div class="item">
+        items_HTML += `<div class="item ${index === 0 ? 'active' : ''}">
                             <div class="qoutes">99</div>
                             <div class="author">${t.author}</div>
                             <div class="stars">
@@ -174,11 +174,11 @@ function renderTestimonials( target, data ) {
                         ${items_HTML}
                     </div>
                     <div class="controls">
-                        <i class="fa fa-arrow-left"></i>
+                        <i class="fa fa-long-arrow-left"></i>
                         <div class="long">
-                            <div class="short"></div>
+                            <div class="short" style="width: ${100 / data.length}%;"></div>
                         </div>
-                        <i class="fa fa-arrow-right"></i>
+                        <i class="fa fa-long-arrow-right"></i>
                     </div>
                 </div>`;
 

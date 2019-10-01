@@ -198,7 +198,76 @@
 
 
 /* START: testimonials */
-
+.testimonials {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+    .testimonials > .list {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+        .testimonials > .list > .item {
+            display: none;
+            width: 100%;
+        }
+            .testimonials > .list > .item.active {
+                display: inline-block;
+            }
+            .testimonials > .list > .item > * {
+                display: inline-block;
+                width: 100%;
+            }
+            .testimonials > .list .qoutes {
+                font-family: cursive;
+                font-size: 40px;
+                line-height: 40px;
+                margin-bottom: 30px;
+                color: #CCC;
+            }
+            .testimonials > .list .author {
+                font-size: 24px;
+                font-weight: bold;
+                line-height: 30px;
+                margin-bottom: 15px;
+                color: #333;
+            }
+            .testimonials > .list .stars {
+                font-size: 16px;
+                line-height: 20px;
+                margin-bottom: 30px;
+                color: var(--star-color);
+            }
+                .testimonials > .list .stars > .fa {
+                    display: inline-block;
+                }
+            .testimonials > .list .text {
+                font-size: 18px;
+                line-height: 25px;
+                color: #777;
+            }
+    .testimonials > .controls {
+        display: inline-block;
+        width: 100%;
+    }
+        .testimonials > .controls > .fa {
+            display: inline-block;
+        }
+        .testimonials > .controls > .long {
+            display: inline-block;
+            width: 160px;
+            height: 6px;
+            background-color: #CCC;
+            text-align: left;
+        }
+            .testimonials > .controls > .long > .short {
+                display: inline-block;
+                width: 33.333%;
+                height: 100%;
+                float: left;
+                background-color: var(--secondary-color);
+            }
 /* END: testimonials */
 
 
