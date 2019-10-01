@@ -188,7 +188,7 @@ function renderTestimonials( target, data ) {
 function updateVisibleTestimonial( event ) {
     const direction = event.target.dataset.direction;
     let index = parseInt(document.querySelector('.testimonials > .list > .item.active').dataset.index);
-    const length = testimonials.length - 1;
+    const length = document.querySelectorAll('.testimonials > .list > .item').length - 1;
 
     if ( direction === 'left') {
         // previous
