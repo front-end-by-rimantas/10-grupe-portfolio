@@ -161,7 +161,8 @@ function renderTestimonials( target, data ) {
             stars_HTML += '<i class="fa fa-star-o"></i>';
         }
 
-        items_HTML += `<div class="item" data-index="${index}">
+        items_HTML += `<div class="item" data-index="${index}"
+                            style="width: ${100 / data.length}%;">
                             <div class="qoutes">99</div>
                             <div class="author">${t.author}</div>
                             <div class="stars">
@@ -171,8 +172,12 @@ function renderTestimonials( target, data ) {
                         </div>`;
     });
 
+    let middleItem = Math.floor(data.length / 2);
+
     let HTML = `<div class="testimonials">
-                    <div class="list">
+                    <div class="list"
+                        style="width: ${data.length * 100}%;
+                                margin-left: -${middleItem * 100}%;">
                         ${items_HTML}
                     </div>
                     <div class="controls">
