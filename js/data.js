@@ -129,17 +129,17 @@ const works = [
 const testimonials = [
     {
         author: 'Chuck Norris',
-        stars: 5,
+        stars: 1,
         text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem.'
     },
     {
         author: 'Bill Gates',
-        stars: 5,
+        stars: 3,
         text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum.'
     },
     {
         author: 'Jean Claude van Damme',
-        stars: 2.5,
+        stars: 5,
         text: 'Split the stars...'
     }
 ];

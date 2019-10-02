@@ -193,36 +193,36 @@ function renderTestimonials( target, data ) {
     return document.querySelector(target).innerHTML = HTML;
 }
 
+
 function updateVisibleTestimonial( event ) {
     const direction = event.target.dataset.direction;
-    let index = parseInt(document.querySelector('.testimonials > .list > .item.active').dataset.index);
+    const list = document.querySelector('.testimonials > .list');
     const length = document.querySelectorAll('.testimonials > .list > .item').length - 1;
+    let currentlyVisibleIndex = parseInt(list.style.marginLeft) / -100;
 
     if ( direction === 'left') {
-        // previous
-        if ( index === 0 ) {
-            index = length;
+        // previous .list -> m-l: -200% + 100%
+        if ( currentlyVisibleIndex === 0 ) {
+            currentlyVisibleIndex = length - 1;
+            list.style.marginLeft = (-currentlyVisibleIndex + 1) *100  +'%';
         } else {
-            index--;
+            list.style.marginLeft = (-currentlyVisibleIndex + 1) *100  +'%';
+            currentlyVisibleIndex--;
         }
     }
 
     if ( direction === 'right') {
-        // next
-        if ( index < length ) {
-            index++
+        // next .list -> m-l: -200% - 100%
+        if ( currentlyVisibleIndex === length ) {
+            currentlyVisibleIndex = 1;
+            list.style.marginLeft = (-currentlyVisibleIndex - 1) *100  +'%';
         } else {
-            index = 0;
+            list.style.marginLeft = (-currentlyVisibleIndex - 1) *100  +'%';
+            currentlyVisibleIndex++;
         }
     }
 
-    document.querySelector('.testimonials > .list > .item.active')
-            .classList.remove('active');
-    
-    document.querySelectorAll('.testimonials > .list > .item')[index]
-            .classList.add('active');
-
-    return console.log('Paspausta kryptis: '+direction);
+    return;
 }
 
 
