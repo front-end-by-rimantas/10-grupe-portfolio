@@ -209,12 +209,9 @@
         margin-bottom: 60px;
     }
         .testimonials > .list > .item {
-            display: none;
+            display: inline-block;
             width: 100%;
         }
-            .testimonials > .list > .item.active {
-                display: inline-block;
-            }
             .testimonials > .list > .item > * {
                 display: inline-block;
                 width: 100%;

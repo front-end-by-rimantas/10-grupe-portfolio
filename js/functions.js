@@ -148,6 +148,8 @@ function filterGallery( event ) {
 
 function renderTestimonials( target, data ) {
     let items_HTML = '';
+    
+    data = [ data[data.length-1], ...data, data[0] ];
 
     data.forEach( (t, index) => {
         let stars_HTML = '';
@@ -159,7 +161,7 @@ function renderTestimonials( target, data ) {
             stars_HTML += '<i class="fa fa-star-o"></i>';
         }
 
-        items_HTML += `<div class="item active" data-index="${index}">
+        items_HTML += `<div class="item" data-index="${index}">
                             <div class="qoutes">99</div>
                             <div class="author">${t.author}</div>
                             <div class="stars">
@@ -183,40 +185,7 @@ function renderTestimonials( target, data ) {
                 </div>`;
 
     // final testimonials HTML content
-    document.querySelector(target).innerHTML = HTML;
-
-    // randame auksciausia testimonail elementa ir suvienodiname kitus pagal jo auksti
-    const allTestimonialsElements = document.querySelectorAll('.testimonials > .list > .item');
-
-    // randame auksciausia
-    let highest = 0;
-    allTestimonialsElements.forEach( t => {
-        const textElement = t.querySelector('.text');
-        const elementHeight = parseFloat(getComputedStyle( textElement ).height);
-        
-        if ( elementHeight > highest ) {
-            highest = elementHeight;
-        }
-    });
-    
-    // suvienodinu visus aukscius
-    if ( highest > 0 ) {
-        allTestimonialsElements.forEach( t => {
-            t.querySelector('.text').style.minHeight = highest+'px';
-        });
-    }
-
-    // paslepiame visus apart pirmojo
-    // butu galima naudoti: '.testimonials > .list > .item:not(:first-child)'
-    document.querySelectorAll('.testimonials > .list > .item')
-        .forEach( ( t, index ) => {
-            if ( index !== 0 ) {
-                t.classList.remove('active');
-            }
-        }
-    );
-
-    return;
+    return document.querySelector(target).innerHTML = HTML;
 }
 
 function updateVisibleTestimonial( event ) {
