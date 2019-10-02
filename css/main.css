@@ -243,6 +243,8 @@
                     display: inline-block;
                 }
             .testimonials > .list .text {
+                min-height: 50px;
+                width: 50%;
                 font-size: 18px;
                 line-height: 25px;
                 color: #777;
@@ -253,11 +255,16 @@
     }
         .testimonials > .controls > .fa {
             display: inline-block;
+            padding: 10px;
+            line-height: 10px;
+            font-size: 20px;
+            cursor: pointer;
         }
         .testimonials > .controls > .long {
             display: inline-block;
             width: 160px;
             height: 6px;
+            margin-top: 11px;
             background-color: #CCC;
             text-align: left;
         }

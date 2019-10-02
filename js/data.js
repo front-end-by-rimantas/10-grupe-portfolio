@@ -130,12 +130,12 @@ const testimonials = [
     {
         author: 'Chuck Norris',
         stars: 5,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem.'
     },
     {
         author: 'Bill Gates',
         stars: 5,
-        text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum.'
+        text: 'Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum. Dolore quasi mollitia rem quisquam atque pariatur, a ut, amet illum quibusdam facere vitae delectus reiciendis fugit tempora esse sint deserunt dolorum.'
     },
     {
         author: 'Jean Claude van Damme',
