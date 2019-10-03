@@ -199,30 +199,52 @@ function updateVisibleTestimonial( event ) {
     const list = document.querySelector('.testimonials > .list');
     const length = document.querySelectorAll('.testimonials > .list > .item').length - 1;
     let currentlyVisibleIndex = parseInt(list.style.marginLeft) / -100;
-
-    if ( direction === 'left') {
-        // previous .list -> m-l: -200% + 100%
+    const time = 1000;
+    const step = 50;        // kas kiek laiko po zingsni? time / step = 100 ms
+    let directionIndex = 1;
+    
+    console.log('pries IF: '+currentlyVisibleIndex);
+    
+    if ( direction === 'left' ) {
+        // currentlyVisibleIndex--;
+        directionIndex = 1;
         if ( currentlyVisibleIndex === 0 ) {
             currentlyVisibleIndex = length - 1;
-            list.style.marginLeft = (-currentlyVisibleIndex + 1) *100  +'%';
-        } else {
-            list.style.marginLeft = (-currentlyVisibleIndex + 1) *100  +'%';
-            currentlyVisibleIndex--;
         }
     }
 
-    if ( direction === 'right') {
-        // next .list -> m-l: -200% - 100%
+    if ( direction === 'right' ) {
+        // currentlyVisibleIndex++;
+        directionIndex = -1;
         if ( currentlyVisibleIndex === length ) {
             currentlyVisibleIndex = 1;
-            list.style.marginLeft = (-currentlyVisibleIndex - 1) *100  +'%';
-        } else {
-            list.style.marginLeft = (-currentlyVisibleIndex - 1) *100  +'%';
-            currentlyVisibleIndex++;
         }
     }
+    console.log('po IF: '+currentlyVisibleIndex);
+
+    let i = 0;
+    const timer = setInterval( () => {
+        if ( i <= step ) {
+            list.style.marginLeft = -(currentlyVisibleIndex - directionIndex / step * i ) *100  +'%';
+            i++;
+        } else {
+            if ( currentlyVisibleIndex === 1 ) {
+                list.style.marginLeft = -(length - 1) * 100 + '%';
+            }
+            if ( currentlyVisibleIndex === length - 1 ) {
+                list.style.marginLeft = '-100%';
+            }
+            clearInterval( timer );
+        }
+    },  time / step );
 
     return;
 }
 
 
+
+// let skaicius = 0;
+
+// const timer = setInterval(  () => {console.log(skaicius);skaicius++;},
+//                             100
+//                         );
